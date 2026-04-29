@@ -167,7 +167,7 @@ st.subheader("Datos históricos de referencia")
 st.dataframe(df[["fecha","especie","variedad","tipo_cliente","pais_destino","tallos_solicitados","produccion_exportable_tallos","gap_demanda_oferta","riesgo_quiebre","margen_bruto_estimado"]].head(200), use_container_width=True)
 
 st.subheader("Producción promedio por especie")
-st.bar_chart(df.groupby("especie")["produccion"].mean())
+st.bar_chart(df.groupby("especie")["produccion_exportable_tallos"].mean())
 df.groupby("especie")["produccion_exportable_tallos"].mean().sort_values().plot(kind="barh", ax=ax)
 ax.set_xlabel("Tallos exportables promedio")
 st.pyplot(fig)
